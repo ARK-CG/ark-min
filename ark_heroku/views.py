@@ -6,8 +6,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 import firebase_admin
 from firebase_admin import credentials, auth, db, firestore, storage
-cred = credentials.Certificate(
-    '/home/ergoproxy/Downloads/ark-cg-firebase-adminsdk-o308i-b331fc5680.json')
+import os
+import json
+firebase_key = os.environ["FIREBASE"]
+cred = credentials.Certificate(json.loads(firebase_key))
 firebase_admin.initialize_app(cred)
 # For Firebase Functions
 
