@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CG映像制作サークル【ARK】</title>
+  <!-- BootstrapのCSS読み込み -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/about.css' %}">
+  <!-- jQuery読み込み -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- BootstrapのJS読み込み -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+
+</head>
+
+<body>
+  <div class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" id="logo" href="{% url 'ark_web:index' %}">
+        <img src="{% static 'image/arklogo1.png' %}" alt=""> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'ark_web:gallery'%}">Gallery
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'ark_web:about'%}">About
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'ark_web:news'%}">News
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Board
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'ark_web:idea' %}">Project idea</a>
+              <a class="dropdown-item" href="{% url 'ark_web:progress' %}">Project progress</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="eyecatch">
+      <img src="{% static 'image/kaito-eye.jpg' %}" alt="" width="100%">
+      <p>わたし達はCGたくさん作っています。</p>
+    </div>
+
+    <div class="content">
+      <div class="row">
+        <div class="col-12 col-md-6 fade-in left">
+          <div class="category">
+            <h3>3D CG</h3>
+            <p>当サークルのメイン活動内容となっている 3DCGはメンバー個人個人がそれぞれのソフトを使いたくさんの作品を出しています。 基本的には個人作業だがサークル全体で撮影なども行っています。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 fade-in right">
+          <div class="category">
+            <h3>イラストレーション</h3>
+            <p>この分野は得意なメンバーが各々の好きなイラストを描いています。またそのイラストをモデリングをする試みも行われています。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 fade-in left">
+          <div class="category">
+            <h3>webアプリケーション</h3>
+            <p>webアプリケーションは2018年から始まったプロジェクトです。エンジニアコースやデザインコースのメンバーが協力してサービスを作っています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="ex2">
+        <h2 class="fade-in">サークル概要</h2>
+        <div class="text fade-in">
+          <table>
+            <tr>
+              <td>サークル名</td>
+              <td>[ARK] CG・映像制作サークル</td>
+            </tr>
+            <tr>
+              <td>アドレス</td>
+              <td>〒115-0053
+                <br>東京都北区赤羽台1-7-11</td>
+            </tr>
+            <tr>
+              <td>アクセス</td>
+              <td>赤羽駅西口から徒歩10分
+                <br />赤羽台岩渕駅から徒歩12分</td>
+            </tr>
+            <tr>
+              <td>部員数</td>
+              <td>20人</td>
+            </tr>
+          </table>
+        </div>
+        <div class="map_wrap fade-in">
+          <div id="map"></div>
+          <script src="https://maps.googleapis.com/maps/api/js"></script>
+          <script>
+            function initMap() {
+              var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                  lat: 35.780464,
+                  lng: 139.715601
+                },
+                zoom: 14
+              });
+              var myLatLng = { lat: 35.780464, lng: 139.715601 };
+              var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+              });
+            }
+            initMap();
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <div class="member">
+      <h2 class="fade-in">メンバー紹介</h2>
+      <div class="content">
+        <div class="row">
+          <div class="col-12 col-md-4 left">
+            <div class="prf fade-in">
+              <img src="{% static 'image/Yaegashi.jpg' %}" style="width:100%" alt="">
+              <p class="position">会長</p>
+              <p class="name">堀米崇</p>
+              <p class="explain">デザインコース所属
+                <br>2017年サークルを創立。
+                <br>モデリングが出来ます。</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4 center">
+            <div class="prf fade-in">
+              <img src="{% static 'image/Yaegashi.jpg' %}" style="width:100%" alt="">
+              <p class="position">副会長</p>
+              <p class="name">石出港士</p>
+              <p class="explain">エンジニアコース所属
+                <br>サーバーの知識がすごい人。</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4 right">
+            <div class="prf fade-in">
+              <img src="{% static 'image/Yaegashi.jpg' %}" style="width:100%" alt="">
+              <p class="position">広報長</p>
+              <p class="name">八重樫建成</p>
+              <p class="explain">デザインコース所属
+                <br>インターフェースに詳しい人。</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+</body>
+
+</html>

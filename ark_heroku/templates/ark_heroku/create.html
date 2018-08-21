@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CG映像制作サークル【ARK】</title>
+  <!-- BootstrapのCSS読み込み -->
+  <link href="{% static 'css/bootstrap-css/bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/top.css' %}">
+  <!-- jQuery読み込み -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- BootstrapのJS読み込み -->
+  <script src="{% static 'js/bootstrap-js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/imagesloaded.pkgd.min.js' %}">
+
+  </script>
+
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="{% static 'js/top.js"></script>
+
+</head>
+
+<body>
+  <div class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" id="logo" href="{% url 'index'%}">
+        <img src="{% static 'posts/arklogo1.png' %}" alt=""> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'ark_web:gallery'%}">Gallarey
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'ark_web:about'%}">About
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'ark_web:news'%}">News
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Board
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="idea.html">Project idea</a>
+              <a class="dropdown-item" href="progress.html">Project progress</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <h2>新規アイディア</h2>
+    <form class="" action="{% url 'ark_web:create' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="id">タイトル</label>
+      <input type="text" name="title" value="" id="title" required>
+      <input type="date" name="pub_date" value="" id="pub_date" required>
+      <textarea name="body" rows="8" cols="80" required></textarea>
+
+      <button type="submit" name="button">投稿する</button>
+    </form>
+
+  </div>
+
+
+</body>
+
+</html>
