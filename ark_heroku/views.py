@@ -27,9 +27,8 @@ def get_news():
 
 def index(request):
     # トップページ(galary,news,member)
-    works = get_works()
     content = {
-        'works': works,
+        'works': get_works(),
         'news': get_news()
     }
     return render(request, 'index.html', content)
@@ -40,15 +39,15 @@ def gallery(request):
     return render(request, 'gallery.html', content)
 
 
-def about(request, id):
-    content = {
-
-    }
+def about(request):
+    content = {}
     return render(request, 'about.html', content)
 
 
 def news(request):
-    content = {}
+    content = {
+        'news': get_news()
+    }
     return render(request, 'news.html', content)
 
 
