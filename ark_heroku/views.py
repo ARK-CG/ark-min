@@ -11,6 +11,7 @@ import json
 firebase_key = os.environ["FIREBASE"]
 cred = credentials.Certificate(json.loads(firebase_key))
 firebase_admin.initialize_app(cred)
+db = firestore.client()
 # For Firebase Functions
 # https://console.firebase.google.com/u/2/project/ark-cg/overview?hl=ja
 
@@ -19,7 +20,6 @@ def image_url():
     return 0
 
 def get_works():
-    db = firestore.client()
     data = db.collection(u'works').get()
     return [i.to_dict() for i in data]
 
@@ -69,11 +69,18 @@ def progress(request):
 
 def create(request):
     if request.method == 'POST':
+        data = {
+            'title': request.title,
+            'context': request.context,
+            'image': image_url(request.image),
+            'date' : 'TIMESTUMP',
+        }
         if 'create_work' in request.POST:
+            db.collection(u'works').add(data)
         if 'create_news' in request.POST:
+            db.collection(u'news').add(data)
         if 'create_idea' in request.POST:
+            db.collection(u'ideas').add(data)
     context = {
-        'cards': new_cards,
-        'requests': new_requests,
     }
     return render(request, 'iniita/index.html', context)
