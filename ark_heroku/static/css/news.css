@@ -1,0 +1,151 @@
+#logo img{
+  margin:0 20px;
+  width: 60px;
+}
+
+.fade-in {
+  transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -webkit-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+}
+
+li a{
+  margin-right: 35px;
+}
+
+.top{
+  border-bottom: solid 1px #C0C0C0;
+  padding-bottom: 40px
+}
+
+@media screen and (min-width:767px) {
+  h2{
+    width: 100%;
+    margin: 0px auto 30px;
+    padding-top: 40px;
+    font-weight: lighter;
+  }
+
+  main{
+    width: 80%;
+    margin: 40px auto;
+  }
+
+  .img{
+    text-align: right;
+    display: inline-block;
+    width: 180px;
+    border: solid 0.5px rgba(0,0,0,0.3)
+  }
+
+  .content .text{
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 60%;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+  .content{
+    width: 100%;
+    margin: 10px auto 0px ;
+    padding: 20px 0;
+    overflow: hidden;
+  }
+
+
+  .contents{
+    background: #fff;
+    width: 100%;
+    margin: 0 auto 30px;
+    border-bottom: 1px dotted #DCDCDC;
+  }
+
+  .text h3{
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  .text-content{
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .sub{
+    display: inline-block;
+    font-size: 14px;
+    color: #808080;
+    margin: 0 0 0 20px;
+  }
+}
+
+.news{
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+
+@media screen and (max-width:767px) {
+  h2{
+    width: 100%;
+    margin: 0px auto 30px;
+    padding-top: 20px;
+    font-weight: lighter;
+    text-align: center;
+  }
+
+  main{
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  .content .text{
+    margin: 30px auto;
+    width: 90%;
+  }
+
+  .img{
+    width: 100%;
+    border: solid 0.5px rgba(0,0,0,0.3);
+  }
+
+  .content{
+    width: 100%;
+    margin: 0px auto 0px ;
+    overflow: hidden;
+
+  }
+
+  .contents{
+    background: #fff;
+    width: 100%;
+    margin: 0 auto 30px;
+    border-bottom: 1px solid #DCDCDC;
+  }
+
+  .text h3{
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  .text-content{
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .sub{
+    display: inline-block;
+    font-size: 10px;
+    color: #808080;
+    margin: 0 0 0 20px;
+  }
+
+
+}
+
+footer{
+  width: 100%;
+  height: 120px;
+  background: #1E1E1E;
+}
