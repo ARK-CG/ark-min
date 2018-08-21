@@ -26,4 +26,5 @@ urlpatterns = [
     path('news', views.news, name='news'),
     path('idea', views.idea, name='idea'),
     path('progress', views.progress, name='progress'),
+    path('create', views.create, name='create'),
 ]

@@ -15,6 +15,9 @@ firebase_admin.initialize_app(cred)
 # https://console.firebase.google.com/u/2/project/ark-cg/overview?hl=ja
 
 
+def image_url():
+
+
 def get_works():
     db = firestore.client()
     data = db.collection(u'works').get()
@@ -62,3 +65,15 @@ def idea(request):
 def progress(request):
     content = {}
     return render(request, 'progress.html', content)
+
+
+def create(request):
+    if request.method == 'POST':
+        if 'create_work' in request.POST:
+        if 'create_news' in request.POST:
+        if 'create_idea' in request.POST:
+    context = {
+        'cards': new_cards,
+        'requests': new_requests,
+    }
+    return render(request, 'iniita/index.html', context)

@@ -1,4 +1,6 @@
 {% extends "base.html" %} {% block content %}
+
+<div class='collection'>
     <h2>新規アイディア</h2>
     <form class="" action="{% url 'ark_web:create' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
@@ -9,7 +11,7 @@
 
       <button type="submit" name="button">投稿する</button>
     </form>
-
+</div>
 
 
 {% endblock %}
