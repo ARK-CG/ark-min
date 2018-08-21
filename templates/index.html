@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %}
+    <div id="wrapper">
+      <div id="container">
+        {% for work in works %}
+
+        <div class="item fade-in">
+          <a href="#">
+            <div class="imgWrap">
+              <p class="post-title">{{work.title}}</p>
+              <img src="{{ work.image}}" />
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+
+
+      </div>
+
+    </div>
+     <div class="news">
+    <h2>News</h2>
+    {% for news in news %}
+    <div class="contents fade-in">
+      <div class="content">
+        <div class="img">
+          <img src="{{ news.image }}" style="width:100%" />
+        </div>
+        <div class="text">
+          <h3>{{news.title}}</h3>
+          <p class="sub">{{news.date}}</p>
+          <p class="text-content">{{news.context}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+{% endblock %}
