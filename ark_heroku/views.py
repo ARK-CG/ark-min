@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib.auth.models import User
-import firebase_admin
+import firebase_admin, datetime
 from firebase_admin import credentials, auth, db, firestore, storage
 import os
 import json
@@ -16,7 +16,7 @@ db = firestore.client()
 # https://console.firebase.google.com/u/2/project/ark-cg/overview?hl=ja
 
 
-def image_url():
+def image_url(locate_url):
     return 0
 
 def get_works():
@@ -73,7 +73,8 @@ def create(request):
             'title': request.title,
             'context': request.context,
             'image': image_url(request.image),
-            'date' : 'TIMESTUMP',
+            'date': datetime.datetime.now(),
+            'timestamp' : datetime.datetime.now(),
         }
         if 'create_work' in request.POST:
             db.collection(u'works').add(data)
