@@ -16,7 +16,7 @@ firebase_admin.initialize_app(cred)
 
 
 def image_url():
-
+    return 0
 
 def get_works():
     db = firestore.client()
