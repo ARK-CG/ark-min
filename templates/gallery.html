@@ -1,24 +1,25 @@
-{% extends "base.html" %} {% block content %}
-    <div class="top">
-      <h2>Gallarey</h2>
-      <p>イラストからアプリケーションまでさまざまなジャンルのものを作っています。</p>
-    </div>
+{% extends "base.html" %} {% load static %} {% block mycss %}
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">{% endblock %} {% block content %}
+<div class="top">
+    <h2>Gallarey</h2>
+    <p>イラストからアプリケーションまでさまざまなジャンルのものを作っています。</p>
+</div>
 
 
-    <div id="content">
-      <div id="wrapper">
+<div id="content">
+    <div id="wrapper">
         <div id="container">
-          {% for work in works %}
-          <div class="item fade-in">
-            <a href="#">
-              <div class="imgWrap">
-                <p class="post-title">{{work.title}}</p>
-                <img src="{{ work.image }}" />
-              </div>
-            </a>
-          </div>
-          {% endfor %}
+            {% for work in works %}
+            <div class="item fade-in">
+                <a href="#">
+                    <div class="imgWrap">
+                        <p class="post-title">{{work.title}}</p>
+                        <img src="{{ work.image }}" />
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
         </div>
-      </div>
     </div>
+</div>
 {% endblock %}

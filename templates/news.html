@@ -1,23 +1,24 @@
-{% extends "base.html" %} {% block content %}
-    <div class="top">
-      <h2>News</h2>
-      <p>イラストからアプリケーションまでさまざまなジャンルのものを作っています。</p>
-    </div>
+{% extends "base.html" %} {% load static %} {% block mycss %}
+<link rel="stylesheet" href="{% static 'css/news.css' %}">{% endblock %} {% block content %}
+<div class="top">
+    <h2>News</h2>
+    <p>イラストからアプリケーションまでさまざまなジャンルのものを作っています。</p>
+</div>
 
-    <div class="news">
-      {% for news in news %}
-      <div class="contents fade-in">
+<div class="news">
+    {% for news in news %}
+    <div class="contents fade-in">
         <div class="content">
-          <div class="img">
-            <img src="{{ news.image }}" style="width:100%" />
-          </div>
-          <div class="text">
-            <h3>{{news.title}}</h3>
-            <p class="sub">{{news.date}}</p>
-            <p class="text-content">{{news.context}}</p>
-          </div>
+            <div class="img">
+                <img src="{{ news.image }}" style="width:100%" />
+            </div>
+            <div class="text">
+                <h3>{{news.title}}</h3>
+                <p class="sub">{{news.date}}</p>
+                <p class="text-content">{{news.context}}</p>
+            </div>
         </div>
-      </div>
-      {% endfor %}
     </div>
+    {% endfor %}
+</div>
 {% endblock %}

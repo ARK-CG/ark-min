@@ -1,15 +1,16 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% load static %} {% block mycss %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">{% endblock %} {% block content %}
 
 <div class='collection'>
     <h2>新規アイディア</h2>
     <form class="" action="{% url 'ark_web:create' %}" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <label for="id">タイトル</label>
-      <input type="text" name="title" value="" id="title" required>
-      <input type="date" name="pub_date" value="" id="pub_date" required>
-      <textarea name="body" rows="8" cols="80" required></textarea>
+        {% csrf_token %}
+        <label for="id">タイトル</label>
+        <input type="text" name="title" value="" id="title" required>
+        <input type="date" name="pub_date" value="" id="pub_date" required>
+        <textarea name="body" rows="8" cols="80" required></textarea>
 
-      <button type="submit" name="button">投稿する</button>
+        <button type="submit" name="button">投稿する</button>
     </form>
 </div>
 
