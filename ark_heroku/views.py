@@ -12,12 +12,14 @@ firebase_key = os.environ["FIREBASE"]
 cred = credentials.Certificate(json.loads(firebase_key))
 firebase_admin.initialize_app(cred)
 db = firestore.client()
+
 # For Firebase Functions
 # https://console.firebase.google.com/u/2/project/ark-cg/overview?hl=ja
 
 
 def image_url(locate_url):
     return 0
+
 
 def get_works():
     data = db.collection(u'works').get()
@@ -28,20 +30,21 @@ def get_news():
     db = firestore.client()
     data = db.collection(u'news').get()
     return [i.to_dict() for i in data]
+
+
 # Create your views here.
 
 
 def index(request):
     # トップページ(galary,news,member)
-    content = {
-        'works': get_works(),
-        'news': get_news()
-    }
+    content = {'works': get_works(), 'news': get_news()}
     return render(request, 'index.html', content)
 
 
 def gallery(request):
-    content = {'works': get_works(), }
+    content = {
+        'works': get_works(),
+    }
     return render(request, 'gallery.html', content)
 
 
@@ -51,9 +54,7 @@ def about(request):
 
 
 def news(request):
-    content = {
-        'news': get_news()
-    }
+    content = {'news': get_news()}
     return render(request, 'news.html', content)
 
 
@@ -74,7 +75,7 @@ def create(request):
             'context': request.context,
             'image': image_url(request.image),
             'date': datetime.datetime.now(),
-            'timestamp' : datetime.datetime.now(),
+            'timestamp': datetime.datetime.now(),
         }
         if 'create_work' in request.POST:
             db.collection(u'works').add(data)
@@ -82,6 +83,5 @@ def create(request):
             db.collection(u'news').add(data)
         if 'create_idea' in request.POST:
             db.collection(u'ideas').add(data)
-    context = {
-    }
-    return render(request, 'iniita/index.html', context)
+    context = {}
+    return render(request, 'create.html', context)

@@ -3,7 +3,7 @@
 
 <div class='collection'>
     <h2>新規アイディア</h2>
-    <form class="" action="{% url 'ark_web:create' %}" method="post" enctype="multipart/form-data">
+    <form class="" action="{% url 'create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="id">タイトル</label>
         <input type="text" name="title" value="" id="title" required>
