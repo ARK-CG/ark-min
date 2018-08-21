@@ -12,6 +12,7 @@ firebase_key = os.environ["FIREBASE"]
 cred = credentials.Certificate(json.loads(firebase_key))
 firebase_admin.initialize_app(cred)
 # For Firebase Functions
+# https://console.firebase.google.com/u/2/project/ark-cg/overview?hl=ja
 
 
 def get_works():
@@ -37,7 +38,7 @@ def index(request):
 
 
 def gallery(request):
-    content = {}
+    content = {'works': get_works(), }
     return render(request, 'gallery.html', content)
 
 

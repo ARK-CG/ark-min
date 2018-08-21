@@ -8,12 +8,12 @@
     <div id="content">
       <div id="wrapper">
         <div id="container">
-          {% for post in posts.all %}
+          {% for work in works %}
           <div class="item fade-in">
             <a href="#">
               <div class="imgWrap">
-                <p class="post-title">{{post.title}}</p>
-                <img src="{{ post.image.url }}" />
+                <p class="post-title">{{work.title}}</p>
+                <img src="{{ work.image }}" />
               </div>
             </a>
           </div>
