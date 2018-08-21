@@ -1,1 +1,1 @@
-web: gunicorn ark_heroku.wsgi:application
+web: gunicorn ark_heroku.wsgi

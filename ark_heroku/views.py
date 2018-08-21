@@ -19,13 +19,13 @@ def index(request):
         'news': news,
         'ideas': ideas,
     }
-    return render(request, 'ark_web/index.html', content)
+    return render(request, 'ark_heroku/index.html', content)
 
 
 def gallery(request):
     posts = Post.objects.order_by('-pub_date')
     content = {'posts': posts}
-    return render(request, 'ark_web/gallery.html', content)
+    return render(request, 'ark_heroku/gallery.html', content)
 
 
 def about(request, id):
@@ -37,22 +37,22 @@ def about(request, id):
         'user': work.user,
         'image': work.image,
     }
-    return render(request, 'ark_web/about.html', content)
+    return render(request, 'ark_heroku/about.html', content)
 
 
 def news(request):
     newss = News.objects.order_by('-pub_date')
     content = {'newss': newss}
-    return render(request, 'ark_web/news.html', content)
+    return render(request, 'ark_heroku/news.html', content)
 
 
 def idea(request):
     ideas = News.objects.order_by('-pub_date')
     content = {'ideas': ideas}
-    return render(request, 'ark_web/idea.html', content)
+    return render(request, 'ark_heroku/idea.html', content)
 
 
 def progress(request):
     idea = Idea.objects.order_by('-pub_date')
     content = {'idea': idea}
-    return render(request, 'ark_web/progress.html', content)
+    return render(request, 'ark_heroku/progress.html', content)
