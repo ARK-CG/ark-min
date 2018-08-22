@@ -27,5 +27,5 @@ urlpatterns = [
     path('idea', views.idea, name='idea'),
     path('progress', views.progress, name='progress'),
     path('create', views.create, name='create'),
-    path('detail', views.detail, name='detail'),
+    path('detail/', views.detail, name='detail'),
 ]
