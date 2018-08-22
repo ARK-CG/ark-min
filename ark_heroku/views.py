@@ -27,7 +27,6 @@ def get_works():
 
 
 def get_news():
-    db = firestore.client()
     data = db.collection(u'news').get()
     return [i.to_dict() for i in data]
 
@@ -73,15 +72,23 @@ def create(request):
         data = {
             'title': request.title,
             'context': request.context,
-            'image': image_url(request.image),
+            'image': image_url(request.FILES['file']),
             'date': datetime.datetime.now(),
             'timestamp': datetime.datetime.now(),
         }
-        if 'create_work' in request.POST:
+        if request.from('radio-grp') == 'gallery':
             db.collection(u'works').add(data)
-        if 'create_news' in request.POST:
+        elif request.from('radio-grp') == 'news':
             db.collection(u'news').add(data)
-        if 'create_idea' in request.POST:
+        elif request.from('radio-grp') == 'idea':
             db.collection(u'ideas').add(data)
-    context = {}
-    return render(request, 'create.html', context)
+    content = {}
+    return render(request, 'create.html', content)
+
+def detail(request,id):
+    data = db.collection(u'works').documents(id)
+    data = data.to_dict()
+    content = {
+        'work' = data,
+    }
+    return render(request,'detail.html',content)

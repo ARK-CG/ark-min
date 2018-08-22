@@ -5,10 +5,10 @@
         {% for work in works %}
 
         <div class="item fade-in">
-            <a href="#">
+            <a href="{% url 'detail' work.id %}">
                 <div class="imgWrap">
                     <p class="post-title">{{work.title}}</p>
-                    <img src="{{ work.image}}" />
+                    <img src="{{ work.image }}" />
                 </div>
             </a>
         </div>

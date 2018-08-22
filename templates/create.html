@@ -208,11 +208,11 @@
                                             <hr class="hr-light mb-3 mt-4">
                                         </div>
                                         <!--Body-->
-                                        <form action="/" method="post">
+                                        <form action="/" method="post" enctype="multipart/form-data">{% csrf_token %}
                                             <div class="input-group mb-3">
                                                 <div class="cntr">
                                                     <label for="rdo-1" class="btn-radio">
-                                                        <input type="radio" id="rdo-1" name="radio-grp">
+                                                        <input type="radio" id="rdo-1" name="radio-grp" value="gallery">
                                                         <svg width="20px" height="20px" viewBox="0 0 20 20">
                                                             <circle cx="10" cy="10" r="9"></circle>
                                                             <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z"
@@ -223,7 +223,7 @@
                                                         <span style="color:white">Gallery</span>
                                                     </label>
                                                     <label for="rdo-2" class="btn-radio">
-                                                        <input type="radio" id="rdo-2" name="radio-grp">
+                                                        <input type="radio" id="rdo-2" name="radio-grp" value="news">
                                                         <svg width="20px" height="20px" viewBox="0 0 20 20">
                                                             <circle cx="10" cy="10" r="9"></circle>
                                                             <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z"
@@ -234,7 +234,7 @@
                                                         <span style="color:white">News</span>
                                                     </label>
                                                     <label for="rdo-3" class="btn-radio">
-                                                        <input type="radio" id="rdo-3" name="radio-grp">
+                                                        <input type="radio" id="rdo-3" name="radio-grp" value="idea">
                                                         <svg width="20px" height="20px" viewBox="0 0 20 20">
                                                             <circle cx="10" cy="10" r="9"></circle>
                                                             <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z"
@@ -261,7 +261,7 @@
                                                     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                                                 </div>
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                                    <input type="file" name="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                                 </div>
                                             </div>
