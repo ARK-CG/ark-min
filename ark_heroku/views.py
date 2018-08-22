@@ -24,12 +24,12 @@ def image_url(locate_url):
 
 def get_works():
     data = db.collection(u'works').get()
-    return [i.to_dict() for i in data]
+    return [i for i in data]
 
 
 def get_news():
     data = db.collection(u'news').get()
-    return [i.to_dict() for i in data]
+    return [i for i in data]
 
 
 # Create your views here.
@@ -71,8 +71,8 @@ def progress(request):
 def create(request):
     if request.method == 'POST':
         data = {
-            'title': request.title,
-            'context': request.context,
+            'title': request.Form('title'),
+            'context': request.Form('context'),
             'image': image_url(request.FILES['file']),
             'date': datetime.datetime.now(),
             'timestamp': datetime.datetime.now(),
