@@ -57,7 +57,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <strong>Navbar</strong>
+                <strong>ARK</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -66,15 +66,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Create
                             <span class="sr-only">(current)</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
                     </li>
                 </ul>
             </div>
@@ -85,13 +82,35 @@
         <div class="full-bg-img">
             <div class="mask rgba-indigo-slight flex-center">
                 <div class="container">
-                    <div class="white-text text-center wow fadeInUp">
-                        <h2>This Navbar isn't fixed</h2>
-                        <h5>When you scroll down it will disappear</h5>
-                        <br>
-                        <p>Full page intro with background image will be always displayed in full screen mode, regardless of
-                            device </p>
-                    </div>
+                    <form class="md-form" action="#">
+                        <div class="form-group">
+                            <label for="select111" class="control-label">何を投稿するんだい？！</label>
+                            <select id="select111" class="form-control">
+                                <option>News</option>
+                                <option>Work</option>
+                                <option>Idea</option>
+                            </select>
+                        </div>
+                        <!-- Default input -->
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">たいとる</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                        </div>
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea type="text" id="form7" class="md-textarea form-control" rows="3"></textarea>
+                            <label for="form7">Material textarea</label>
+                        </div>
+                        <div class="file-field">
+                            <div class="btn btn-primary btn-sm float-left">
+                                <span>Choose files</span>
+                                <input type="file" multiple>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -99,25 +118,5 @@
 
 </header>
 <!--Main Navigation-->
-
-<!--Main Layout-->
-<main class="text-center py-5 mt-3">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum.</p>
-
-            </div>
-        </div>
-    </div>
-
-</main>
-<!--Main Layout-->
 
 </html>
