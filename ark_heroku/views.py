@@ -102,8 +102,7 @@ def create(request):
 
 
 def detail(request, id):
-    data = db.collection(u'works').document(id).get()
-    data = data.to_dict()
+    data = list(db.collection(u'works').document(id).get())
     content = {
         'work': data,
     }
