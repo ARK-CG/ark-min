@@ -4,7 +4,8 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib.auth.models import User
-import firebase_admin, datetime
+import firebase_admin
+import datetime
 from firebase_admin import credentials, auth, db, firestore, storage
 import os
 import json
@@ -76,19 +77,20 @@ def create(request):
             'date': datetime.datetime.now(),
             'timestamp': datetime.datetime.now(),
         }
-        if request.from('radio-grp') == 'gallery':
+        if request.Form('radio-grp') == 'gallery':
             db.collection(u'works').add(data)
-        elif request.from('radio-grp') == 'news':
+        elif request.Form('radio-grp') == 'news':
             db.collection(u'news').add(data)
-        elif request.from('radio-grp') == 'idea':
+        elif request.Form('radio-grp') == 'idea':
             db.collection(u'ideas').add(data)
     content = {}
     return render(request, 'create.html', content)
 
-def detail(request,id):
+
+def detail(request, id):
     data = db.collection(u'works').documents(id)
     data = data.to_dict()
     content = {
         'work' = data,
     }
-    return render(request,'detail.html',content)
+    return render(request, 'detail.html', content)
