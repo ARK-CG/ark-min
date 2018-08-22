@@ -85,6 +85,7 @@
                     <form class="md-form" action="#">
                         <div class="form-group">
                             <label for="select111" class="control-label">何を投稿するんだい？！</label>
+                            <br>
                             <select id="select111" class="form-control">
                                 <option>News</option>
                                 <option>Work</option>
@@ -92,22 +93,20 @@
                             </select>
                         </div>
                         <!-- Default input -->
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">たいとる</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                        </div>
+                        <label for="exampleForm2">Title</label>
+                        <input type="text" id="exampleForm2" class="form-control">
                         <!--Material textarea-->
                         <div class="md-form">
                             <textarea type="text" id="form7" class="md-textarea form-control" rows="3"></textarea>
-                            <label for="form7">Material textarea</label>
+                            <label for="form7">Context</label>
                         </div>
-                        <div class="file-field">
-                            <div class="btn btn-primary btn-sm float-left">
-                                <span>Choose files</span>
-                                <input type="file" multiple>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                             </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             </div>
                         </div>
                     </form>
