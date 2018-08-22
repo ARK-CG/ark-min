@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 import firebase_admin
 import datetime
-from firebase_admin import credentials, auth, db, firestore, storage
+from firebase_admin import credentials, auth, firestore, storage
 import os
 import json
 firebase_key = os.environ["FIREBASE"]
@@ -23,13 +23,27 @@ def image_url(locate_url):
 
 
 def get_works():
-    data = db.collection(u'works').get()
-    return [i for i in data]
+    data = list(db.collection(u'works').get())
+    datas = [i.to_dict() for i in data]
+    ids = [k.id for k in data]
+    [datas[i].update(id=ids[i]) for i in range(len(ids))]
+    return datas
 
 
 def get_news():
     data = db.collection(u'news').get()
-    return [i for i in data]
+    datas = [i.to_dict() for i in data]
+    ids = [k.id for k in data]
+    [datas[i].update(id=ids[i]) for i in range(len(ids))]
+    return datas
+
+
+def get_ideas():
+    data = db.collection(u'ideas').get()
+    datas = [i.to_dict() for i in data]
+    ids = [k.id for k in data]
+    [datas[i].update(id=ids[i]) for i in range(len(ids))]
+    return datas
 
 
 # Create your views here.
