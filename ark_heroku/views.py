@@ -91,6 +91,6 @@ def detail(request, id):
     data = db.collection(u'works').documents(id)
     data = data.to_dict()
     content = {
-        'work' = data,
+        'work': data,
     }
     return render(request, 'detail.html', content)
