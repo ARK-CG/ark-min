@@ -101,7 +101,7 @@ def create(request):
     return render(request, 'create.html', content)
 
 
-def detail(request, slug, id):
+def detail(request, id):
     data = db.collection(u'works').documents(id).get()
     data = data.to_dict()
     content = {
