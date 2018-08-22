@@ -1,16 +1,49 @@
-{% extends "base.html" %} {% load static %} {% block mycss %}
-<link rel="stylesheet" href="{% static 'css/top.css' %}">{% endblock %} {% block content %}
+{% extends "base.html" %} {% load static %} {% block cssjs %}
+<link rel="stylesheet" href="{% static 'css/top.css' %}">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/css/mdb.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/js/mdb.min.js"></script>{% endblock %} {% block content %}
 
 <div class='collection'>
-    <h2>新規アイディア</h2>
-    <form class="" action="{% url 'create' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="id">タイトル</label>
-        <input type="text" name="title" value="" id="title" required>
-        <input type="date" name="pub_date" value="" id="pub_date" required>
-        <textarea name="body" rows="8" cols="80" required></textarea>
-
-        <button type="submit" name="button">投稿する</button>
+    <form class="md-form" action="#">
+        <div class="form-group">
+            <label for="select111" class="control-label">何を投稿するんだい？！</label>
+            <select id="select111" class="form-control">
+                <option>News</option>
+                <option>Work</option>
+                <option>Idea</option>
+            </select>
+        </div>
+        <!-- Default input -->
+        <div class="form-group">
+            <label for="formGroupExampleInput">たいとる</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        </div>
+        <!--Material textarea-->
+        <div class="md-form">
+            <textarea type="text" id="form7" class="md-textarea form-control" rows="3"></textarea>
+            <label for="form7">Material textarea</label>
+        </div>
+        <div class="file-field">
+            <div class="btn btn-primary btn-sm float-left">
+                <span>Choose files</span>
+                <input type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+            </div>
+        </div>
     </form>
 </div>
 
