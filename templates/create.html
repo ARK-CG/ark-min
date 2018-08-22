@@ -19,117 +19,269 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/js/mdb.min.js"></script>
+    <style>
+        .intro-2 {
+            background: url("http://drive.google.com/uc?export=view&id=1DF5eg8ipo20O7Qij0KFGHBSbq14LRz-b")no-repeat center center;
+            background-size: cover;
+        }
+
+        .top-nav-collapse {
+            background-color: #3f51b5 !important;
+        }
+
+        .navbar:not(.top-nav-collapse) {
+            background: transparent !important;
+        }
+
+        @media (max-width: 768px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #3f51b5 !important;
+            }
+        }
+
+        .hm-gradient .full-bg-img {
+            background: -webkit-linear-gradient(45deg, rgba(83, 125, 210, 0.4), rgba(178, 30, 123, 0.4) 100%);
+            background: -webkit-gradient(linear, 45deg, from(rgba(29, 236, 197, 0.4)), to(rgba(96, 0, 136, 0.4)));
+            background: linear-gradient(to 45deg, rgba(29, 236, 197, 0.4), rgba(96, 0, 136, 0.4) 100%);
+        }
+
+        .card {
+            background-color: rgba(229, 228, 255, 0.2);
+        }
+
+        .md-form .prefix {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .md-form label {
+            color: #ffffff;
+        }
+
+        h6 {
+            line-height: 1.7;
+        }
+
+        @media (max-width: 740px) {
+            .full-height,
+            .full-height body,
+            .full-height header,
+            .full-height header .view {
+                height: 1040px;
+            }
+        }
+
+        .cntr {
+            margin: auto;
+        }
+
+        .btn-radio {
+            cursor: pointer;
+            display: inline-block;
+            float: left;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .btn-radio:not(:first-child) {
+            margin-left: 20px;
+        }
+
+        @media screen and (max-width: 480px) {
+            .btn-radio {
+                display: block;
+                float: none;
+            }
+            .btn-radio:not(:first-child) {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        .btn-radio svg {
+            fill: none;
+            vertical-align: middle;
+        }
+
+        .btn-radio svg circle {
+            stroke-width: 2;
+            stroke: #ffffff;
+        }
+
+        .btn-radio svg path {
+            stroke: #008FFF;
+        }
+
+        .btn-radio svg path.inner {
+            stroke-width: 6;
+            stroke-dasharray: 19;
+            stroke-dashoffset: 19;
+        }
+
+        .btn-radio svg path.outer {
+            stroke-width: 2;
+            stroke-dasharray: 57;
+            stroke-dashoffset: 57;
+        }
+
+        .btn-radio input {
+            display: none;
+        }
+
+        .btn-radio input:checked+svg path {
+            transition: all 0.4s ease;
+        }
+
+        .btn-radio input:checked+svg path.inner {
+            stroke-dashoffset: 38;
+            transition-delay: 0.3s;
+        }
+
+        .btn-radio input:checked+svg path.outer {
+            stroke-dashoffset: 0;
+        }
+
+        .btn-radio span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+    <script>// Animations init
+        new WOW().init();</script>
 </head>
-<style>
-    .view {
-        background: url("https://mdbootstrap.com/img/Photos/Others/img (42).jpg")no-repeat center center;
-        background-size: cover;
-    }
-
-    @media (min-width: 768px) {
-        .view {
-            overflow: visible;
-            margin-top: -56px;
-        }
-    }
-
-    .navbar {
-        z-index: 1;
-    }
-
-    .navbar {
-        background-color: transparent;
-    }
-
-    .top-nav-collapse {
-        background-color: #4285F4;
-    }
-
-    @media only screen and (max-width: 768px) {
-        .navbar {
-            background-color: #4285F4;
-        }
-    }
-</style>
 <!--Main Navigation-->
-<header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <strong>ARK</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Create
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <div class="view intro-2">
-        <div class="full-bg-img">
-            <div class="mask rgba-indigo-slight flex-center">
-                <div class="container">
-                    <form class="md-form" action="#">
-                        <!-- Form inline with radios -->
-                        <div class="input-group custom-control-inline">
-                            <!-- Default inline 1-->
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
-                                <label class="custom-control-label" for="defaultInline1">1</label>
-                            </div>
+    <!--Main Navigation-->
+    <header>
 
-                            <!-- Default inline 2-->
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
-                                <label class="custom-control-label" for="defaultInline2">2</label>
-                            </div>
-
-                            <!-- Default inline 3-->
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample">
-                                <label class="custom-control-label" for="defaultInline3">3</label>
-                            </div>
-                        </div>
-                        <!-- Form inline with radios -->
-                        <!-- Default input -->
-                        <div class="input-group">
-                            <input id="input-char-counter" type="text" length="10" class="form-control">
-                            <label for="input-char-counter">Input title</label>
-                        </div>
-                        <!--Material textarea-->
-                        <div class="input-group">
-                            <textarea id="textarea-char-counter" class="form-control md-textarea" length="120" rows="3"></textarea>
-                            <label for="textarea-char-counter">Type context</label>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                            </div>
-                        </div>
-                    </form>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <strong>ARK</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="">Create</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
+        </nav>
 
-</header>
-<!--Main Navigation-->
+        <!--Intro Section-->
+        <section class="view intro-2 hm-gradient">
+            <div class="full-bg-img">
+                <div class="container flex-center">
+                    <div class="d-flex align-items-center content-height">
+                        <div class="row flex-center pt-5 mt-3">
+                            <div class="col-md-6 text-center text-md-left mb-5">
+                                <div class="white-text">
+                                    <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">Submit now! </h1>
+                                    <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                                    <h6 class="wow fadeInLeft" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga
+                                        nesciunt dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea
+                                        dolor molestiae, quisquam iste, maiores. Nulla.</h6>
+                                    <br>
+                                    <a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s" href="/">Back to Home</a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-xl-5 offset-xl-1">
+                                <!--Form-->
+                                <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                                    <div class="card-body">
+                                        <!--Header-->
+                                        <div class="text-center">
+                                            <h3 class="white-text">Submmission form</h3>
+                                            <hr class="hr-light mb-3 mt-4">
+                                        </div>
+                                        <!--Body-->
+                                        <form action="/" method="post">
+                                            <div class="input-group mb-3">
+                                                <div class="cntr">
+                                                    <label for="rdo-1" class="btn-radio">
+                                                        <input type="radio" id="rdo-1" name="radio-grp">
+                                                        <svg width="20px" height="20px" viewBox="0 0 20 20">
+                                                            <circle cx="10" cy="10" r="9"></circle>
+                                                            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z"
+                                                                class="inner"></path>
+                                                            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z"
+                                                                class="outer"></path>
+                                                        </svg>
+                                                        <span style="color:white">Gallery</span>
+                                                    </label>
+                                                    <label for="rdo-2" class="btn-radio">
+                                                        <input type="radio" id="rdo-2" name="radio-grp">
+                                                        <svg width="20px" height="20px" viewBox="0 0 20 20">
+                                                            <circle cx="10" cy="10" r="9"></circle>
+                                                            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z"
+                                                                class="inner"></path>
+                                                            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z"
+                                                                class="outer"></path>
+                                                        </svg>
+                                                        <span style="color:white">News</span>
+                                                    </label>
+                                                    <label for="rdo-3" class="btn-radio">
+                                                        <input type="radio" id="rdo-3" name="radio-grp">
+                                                        <svg width="20px" height="20px" viewBox="0 0 20 20">
+                                                            <circle cx="10" cy="10" r="9"></circle>
+                                                            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z"
+                                                                class="inner"></path>
+                                                            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z"
+                                                                class="outer"></path>
+                                                        </svg>
+                                                        <span style="color:white">Idea</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- Material input -->
+                                            <div class="md-form">
+                                                <input type="text" id="form1" class="form-control">
+                                                <label for="form1">Title</label>
+                                            </div>
+                                            <!--Basic textarea-->
+                                            <div class="md-form">
+                                                <textarea type="text" id="textareaBasic" class="form-control md-textarea" rows="3"></textarea>
+                                                <label for="textareaBasic">Context</label>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                </div>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                </div>
+                                            </div>
+                                            <hr class="hr-light mb-3 mt-4">
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-indigo">Submmit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!--/.Form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </header>
+    <!--Main Navigation-->
+</body>
 
 </html>
