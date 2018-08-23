@@ -72,10 +72,10 @@ def progress(request):
 
 def create(request):
     if request.method == 'POST':
-        types = request.Form('radio-grp')
+        types = request.POST('radio-grp')
         data = {
-            'title': request.Form('title'),
-            'context': request.Form('context'),
+            'title': request.POST('title'),
+            'context': request.POST('context'),
             'image': image_url(types, request.FILES['file']),
             'date': datetime.datetime.now(),
             'timestamp': datetime.datetime.now(),
