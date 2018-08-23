@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en" class="full-height">
 
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CG映像制作サークル【ARK】</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{% static 'image/favicon.ico' %}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -22,7 +23,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/js/mdb.min.js"></script>
     <style>
         .intro-2 {
-            background: url("http://drive.google.com/uc?export=view&id=1DF5eg8ipo20O7Qij0KFGHBSbq14LRz-b")no-repeat center center;
+            background: url("{% static 'image/create_bg.jpg' %}")no-repeat center center;
             background-size: cover;
         }
 
@@ -146,6 +147,31 @@
             display: inline-block;
             vertical-align: middle;
         }
+
+        .uploader {
+            display: inline-block;
+            width: 500px;
+            height: 200px;
+            border: 4px dashed #fff;
+        }
+
+        .uploader p {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 170px;
+            color: #ffffff;
+        }
+
+        .uploader input {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+        }
     </style>
     <script>// Animations init
         new WOW().init();</script>
@@ -247,23 +273,27 @@
                                                     </label>
                                                 </div>
                                             </div>
+                                            <style>
+                                                .md-form input::placeholder {
+                                                    color: white;
+                                                }
+
+                                                .md-form textarea::placeholder {
+                                                    color: white;
+                                                }
+                                            </style>
                                             <!-- Material input -->
                                             <div class="md-form">
-                                                <input type="text" id="form1" class="form-control">
-                                                <label for="form1">Title</label>
+                                                <input type="text" id="form1" class="form-control" placeholder="Title">
                                             </div>
                                             <!--Basic textarea-->
                                             <div class="md-form">
-                                                <textarea type="text" id="textareaBasic" class="form-control md-textarea" rows="3"></textarea>
-                                                <label for="textareaBasic">Context</label>
+                                                <textarea type="text" id="textareaBasic" class="form-control md-textarea" placeholder="Context" rows="3"></textarea>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                                </div>
-                                                <div class="custom-file">
-                                                    <input type="file" name="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                <div class="uploader">
+                                                    <input type="file" multiple>
+                                                    <p>Drag your files here or click in this area.</p>
                                                 </div>
                                             </div>
                                             <hr class="hr-light mb-3 mt-4">
@@ -274,6 +304,11 @@
                                     </div>
                                 </div>
                                 <!--/.Form-->
+                                <script>$(document).ready(function () {
+                                        $('form input').change(function () {
+                                            $('form p').text(this.files.length + " file(s) selected");
+                                        });
+                                    });</script>
                             </div>
                         </div>
                     </div>

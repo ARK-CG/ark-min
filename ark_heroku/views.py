@@ -5,41 +5,29 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.contrib.auth.models import User
 import firebase_admin
-import datetime
+import time, datetime
 from firebase_admin import credentials, auth, firestore, storage
 import os
 import json
 firebase_key = os.environ["FIREBASE"]
 cred = credentials.Certificate(json.loads(firebase_key))
-firebase_admin.initialize_app(cred)
+firebase_admin.initialize_app(cred, {'storageBucket': 'ark-cg.appspot.com'})
 db = firestore.client()
 
 # For Firebase Functions
 # https://console.firebase.google.com/u/2/project/ark-cg/overview?hl=ja
 
 
-def image_url(locate_url):
-    return 0
+def image_url(types, locate_url):
+    filename = str(time.time())
+    blob = storage.bucket().blob(types + filename + locate_url[-4:])
+    blob.upload_from_filename(locate_url)
+    blob.make_public()
+    return blob.public_url
 
 
-def get_works():
-    data = list(db.collection(u'works').get())
-    datas = [i.to_dict() for i in data]
-    ids = [k.id for k in data]
-    [datas[i].update(id=ids[i]) for i in range(len(ids))]
-    return datas
-
-
-def get_news():
-    data = db.collection(u'news').get()
-    datas = [i.to_dict() for i in data]
-    ids = [k.id for k in data]
-    [datas[i].update(id=ids[i]) for i in range(len(ids))]
-    return datas
-
-
-def get_ideas():
-    data = db.collection(u'ideas').get()
+def get_data(data_type):
+    data = list(db.collection(data_type).get())
     datas = [i.to_dict() for i in data]
     ids = [k.id for k in data]
     [datas[i].update(id=ids[i]) for i in range(len(ids))]
@@ -51,13 +39,13 @@ def get_ideas():
 
 def index(request):
     # トップページ(galary,news,member)
-    content = {'works': get_works(), 'news': get_news()}
+    content = {'works': get_data('works'), 'news': get_data('news')}
     return render(request, 'index.html', content)
 
 
 def gallery(request):
     content = {
-        'works': get_works(),
+        'works': get_data('works'),
     }
     return render(request, 'gallery.html', content)
 
@@ -68,7 +56,7 @@ def about(request):
 
 
 def news(request):
-    content = {'news': get_news()}
+    content = {'news': get_data('news')}
     return render(request, 'news.html', content)
 
 
@@ -84,19 +72,15 @@ def progress(request):
 
 def create(request):
     if request.method == 'POST':
+        types = request.Form('radio-grp')
         data = {
             'title': request.Form('title'),
             'context': request.Form('context'),
-            'image': image_url(request.FILES['file']),
+            'image': image_url(types, request.FILES['file']),
             'date': datetime.datetime.now(),
             'timestamp': datetime.datetime.now(),
         }
-        if request.Form('radio-grp') == 'gallery':
-            db.collection(u'works').add(data)
-        elif request.Form('radio-grp') == 'news':
-            db.collection(u'news').add(data)
-        elif request.Form('radio-grp') == 'idea':
-            db.collection(u'ideas').add(data)
+        db.collection(types).set(data)
     content = {}
     return render(request, 'create.html', content)
 
