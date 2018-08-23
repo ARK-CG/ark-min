@@ -81,6 +81,7 @@ def create(request):
             'timestamp': datetime.datetime.now(),
         }
         db.collection(types).set(data)
+        return HttpResponseRedirect(reverse(index))
     content = {}
     return render(request, 'create.html', content)
 
